@@ -22,7 +22,7 @@ class _App extends State<App> {
         floatingActionButton: FloatingActionButton.large(
             foregroundColor: Colors.amber,
             backgroundColor: Colors.black,
-            child: Icon(Icons.add),
+            child: const Icon(Icons.add),
             onPressed: () {
               setState(() {});
             }),
