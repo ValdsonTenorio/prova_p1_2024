@@ -1,7 +1,7 @@
 import 'package:novo_projeto/entidade/pessoa.dart';
 
 class Dao {
-  final List _dados = [];
+  final List<Pessoa> _dados = [];
   add(Pessoa p) {
     _dados.add(p);
   }

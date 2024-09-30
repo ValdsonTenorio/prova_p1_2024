@@ -2,7 +2,7 @@ import 'package:novo_projeto/entidade/pessoa.dart';
 import 'package:novo_projeto/repositorio/Dao.dart';
 
 class PessoaController {
-  Dao _dao = Dao();
+  final Dao _dao = Dao();
   salvar(Pessoa p) {
     _dao.add(p);
   }
@@ -13,5 +13,13 @@ class PessoaController {
 
   List listar() {
     return _dao.dados;
+  }
+
+  int size() {
+    return _dao.dados.length;
+  }
+
+  info(int indice) {
+    return _dao.dados[indice].nome;
   }
 }

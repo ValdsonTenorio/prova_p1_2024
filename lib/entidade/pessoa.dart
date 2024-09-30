@@ -1,7 +1,3 @@
-import 'dart:io';
-
-import 'package:novo_projeto/repositorio/Dao.dart';
-
 class Pessoa {
   String _nome;
   String _telefone;
