@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:novo_projeto/cadastro.dart';
+import 'package:novo_projeto/controle/pessoaController.dart';
 import 'package:novo_projeto/listagem.dart';
 
 void main(List<String> args) {
@@ -15,10 +17,17 @@ class App extends StatefulWidget {
 }
 
 class _App extends State<App> {
+  PessoaController pessoaController = PessoaController();
+
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Listagem(),
+    return MaterialApp(
+      // home: const Listagem(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => Listagem(pessoaController: pessoaController),
+        '/cadastro': (context) => Cadastro(pessoaController: pessoaController),
+      },
     );
   }
 }

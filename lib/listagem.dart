@@ -3,7 +3,11 @@ import 'package:novo_projeto/cadastro.dart';
 import 'package:novo_projeto/controle/pessoaController.dart';
 
 class Listagem extends StatefulWidget {
-  const Listagem({super.key});
+  final PessoaController pessoaController;
+
+  const Listagem(
+      {super.key,
+      required this.pessoaController}); // Recebe o controlador como argumento
 
   @override
   State<StatefulWidget> createState() {
@@ -12,17 +16,16 @@ class Listagem extends StatefulWidget {
 }
 
 class _Listagem extends State<Listagem> {
-  PessoaController pessoaController = PessoaController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView.builder(
         itemBuilder: (context, indice) {
           return ListTile(
-            title: Text(pessoaController.info(indice)),
+            title: Text(widget.pessoaController.info(indice)),
           );
         },
-        itemCount: pessoaController.size(),
+        itemCount: widget.pessoaController.size(),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -30,7 +33,7 @@ class _Listagem extends State<Listagem> {
               context,
               MaterialPageRoute(
                   builder: (context) => Cadastro(
-                        pessoaController: pessoaController,
+                        pessoaController: widget.pessoaController,
                       ))).then((_) {
             setState(() {}); // Atualiza a lista após voltar
           });
