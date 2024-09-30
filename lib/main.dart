@@ -4,11 +4,20 @@ void main(List<String> args) {
   runApp(App());
 }
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _App();
+  }
+}
+
+class _App extends State<App> {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Center(child: Text("Olá")),
+    return MaterialApp(
+      home: Container(
+        child: Text("Olá"),
+      ),
     );
   }
 }
