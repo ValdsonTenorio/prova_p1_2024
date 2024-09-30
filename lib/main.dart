@@ -12,21 +12,19 @@ class App extends StatefulWidget {
 }
 
 class _App extends State<App> {
-  int valor = 0;
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Text("Contando $valor"),
+        body: ListView(
+          children: [Text('1'), Text('2')],
+        ),
         floatingActionButton: FloatingActionButton.large(
             foregroundColor: Colors.amber,
             backgroundColor: Colors.black,
             child: Icon(Icons.add),
             onPressed: () {
-              setState(() {
-                valor++;
-              });
+              setState(() {});
             }),
       ),
     );
