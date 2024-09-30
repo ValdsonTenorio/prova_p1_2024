@@ -19,11 +19,15 @@ class _App extends State<App> {
     return MaterialApp(
       home: Scaffold(
         body: Text("Contando $valor"),
-        floatingActionButton: FloatingActionButton(onPressed: () {
-          setState(() {
-            valor++;
-          });
-        }),
+        floatingActionButton: FloatingActionButton.large(
+            foregroundColor: Colors.amber,
+            backgroundColor: Colors.black,
+            child: Icon(Icons.add),
+            onPressed: () {
+              setState(() {
+                valor++;
+              });
+            }),
       ),
     );
   }
