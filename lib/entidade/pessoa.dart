@@ -1,8 +1,26 @@
 import 'dart:io';
 
 class Pessoa {
-  String nome;
-  String telefone;
-  String email;
-  Pessoa({required this.nome, required this.telefone, required this.email});
+  String _nome;
+  String _telefone;
+  String _email;
+  Pessoa({required nome, required telefone, required email})
+      : _email = email,
+        _nome = nome,
+        _telefone = telefone;
+
+  String get nome => _nome;
+  String get telefone => _telefone;
+  String get email => _email;
+  set nome(String nome) {
+    _nome = nome;
+  }
+
+  set email(String email) {
+    _email = email;
+  }
+
+  set telefone(String telefone) {
+    _telefone = telefone;
+  }
 }
