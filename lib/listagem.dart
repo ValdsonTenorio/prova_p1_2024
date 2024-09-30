@@ -3,6 +3,8 @@ import 'package:novo_projeto/cadastro.dart';
 import 'package:novo_projeto/controle/pessoaController.dart';
 
 class Listagem extends StatefulWidget {
+  const Listagem({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _Listagem();
@@ -32,7 +34,6 @@ class _Listagem extends State<Listagem> {
                       ))).then((_) {
             setState(() {}); // Atualiza a lista após voltar
           });
-          ;
         },
         child: const Icon(Icons.add),
       ),
