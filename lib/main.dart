@@ -12,11 +12,18 @@ class App extends StatefulWidget {
 }
 
 class _App extends State<App> {
+  int valor = 0;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Container(
-        child: Text("Olá"),
+      home: Scaffold(
+        body: Text("Contando $valor"),
+        floatingActionButton: FloatingActionButton(onPressed: () {
+          setState(() {
+            valor++;
+          });
+        }),
       ),
     );
   }
