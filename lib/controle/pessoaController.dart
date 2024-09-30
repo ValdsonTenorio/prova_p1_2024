@@ -22,4 +22,6 @@ class PessoaController {
   info(int indice) {
     return _dao.dados[indice].nome;
   }
+
+  Pessoa get(int indice) => _dao.dados[indice];
 }
