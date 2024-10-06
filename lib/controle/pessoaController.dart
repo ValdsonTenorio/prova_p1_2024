@@ -1,8 +1,9 @@
 import 'package:novo_projeto/entidade/pessoa.dart';
 import 'package:novo_projeto/repositorio/Dao.dart';
+import 'package:novo_projeto/repositorio/interfaceDao';
 
 class PessoaController {
-  final Dao _dao = Dao();
+  final InterfaceDao _dao = Dao();
   salvar(Pessoa p) {
     _dao.add(p);
   }
