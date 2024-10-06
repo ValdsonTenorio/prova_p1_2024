@@ -1,0 +1,9 @@
+import 'package:novo_projeto/entidade/pessoa.dart';
+
+abstract class InterfaceDao {
+  add(Pessoa p);
+
+  remove(Pessoa p) ;
+
+  get dados();
+}

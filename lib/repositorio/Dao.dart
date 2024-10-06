@@ -1,6 +1,6 @@
 import 'package:novo_projeto/entidade/pessoa.dart';
 
-class Dao {
+class Dao implements InterfaceDao {
   final List<Pessoa> _dados = [];
   add(Pessoa p) {
     _dados.add(p);
@@ -12,3 +12,5 @@ class Dao {
 
   get dados => _dados;
 }
+
+class InterfaceDao {}

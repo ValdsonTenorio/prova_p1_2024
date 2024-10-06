@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:novo_projeto/cadastro.dart';
 import 'package:novo_projeto/controle/pessoaController.dart';
 
 class Listagem extends StatefulWidget {
