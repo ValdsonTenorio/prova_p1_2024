@@ -1,17 +1,18 @@
 class Pessoa {
   String _nome;
-  int _id = 0;
+  int? _id;
   String _telefone;
   String _email;
   Pessoa({id, required nome, required telefone, required email})
       : _email = email,
         _nome = nome,
-        _telefone = telefone;
+        _telefone = telefone,
+        _id = id;
 
   String get nome => _nome;
   String get telefone => _telefone;
   String get email => _email;
-  int get id => _id;
+  int get id => _id ?? 0;
 
   set id(int id) {
     _id = id;
@@ -39,6 +40,16 @@ class Pessoa {
     );
   }
   Map<String, dynamic> toMap() {
-    return {'id': id, 'nome': nome, 'telefone': _telefone, 'email': _telefone};
+    var map = {
+      'nome': _nome,
+      'telefone': _telefone,
+      'email': _email,
+    };
+
+    if (_id != null && _id! > 0) {
+      map['id'] = _id as String;
+    }
+
+    return map;
   }
 }

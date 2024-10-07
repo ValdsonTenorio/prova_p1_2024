@@ -68,10 +68,10 @@ class Cadastro extends StatelessWidget {
 
                 // Criação da nova pessoa
                 Pessoa novaPessoa = Pessoa(
-                    nome: nomeController.text,
-                    email: emailController.text,
-                    telefone: telefoneController.text,
-                    id: null);
+                  nome: nomeController.text,
+                  email: emailController.text,
+                  telefone: telefoneController.text,
+                );
 
                 // Adiciona a nova pessoa ao controlador
                 pessoaController.salvar(novaPessoa);

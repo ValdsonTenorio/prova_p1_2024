@@ -1,9 +1,10 @@
 import 'package:novo_projeto/entidade/pessoa.dart';
 import 'package:novo_projeto/repositorio/Dao.dart';
+import 'package:novo_projeto/repositorio/DaoSqLite.dart';
 import 'package:novo_projeto/repositorio/interfaceDao';
 
 class PessoaController {
-  final InterfaceDao _dao = Dao();
+  final InterfaceDao _dao = DaoSqLite();
   List lista = [];
   salvar(Pessoa p) {
     _dao.add(p);
