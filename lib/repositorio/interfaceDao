@@ -2,11 +2,7 @@ import 'package:novo_projeto/entidade/pessoa.dart';
 
 abstract class InterfaceDao {
 
-  Future<void> add(Pessoa pessoa) async ;
-
-
-  Future<int> remove(Pessoa pessoa) async ;
-
-  Future<List<Pessoa>> get dados async;
-
+  Future<void> add(Pessoa pessoa);
+  Future<int> remove(Pessoa pessoa);
+  Future<List<Pessoa>> get dados;
 }

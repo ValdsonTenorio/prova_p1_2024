@@ -4,6 +4,7 @@ import 'package:novo_projeto/repositorio/interfaceDao';
 
 class PessoaController {
   final InterfaceDao _dao = Dao();
+  List lista = [];
   salvar(Pessoa p) {
     _dao.add(p);
   }
@@ -12,17 +13,22 @@ class PessoaController {
     _dao.remove(p);
   }
 
-  List listar() {
+  Future<List<Pessoa>> listar() {
     return _dao.dados;
   }
 
-  int size() {
-    return _dao.dados.length;
+  Future<int> size() async {
+    lista = await _dao.dados;
+    return lista.length;
   }
 
-  info(int indice) {
-    return _dao.dados[indice].nome;
+  info(int indice) async {
+    lista = await _dao.dados;
+    return _dao.dados;
   }
 
-  Pessoa get(int indice) => _dao.dados[indice];
+  Future<Pessoa> get(int indice) async {
+    lista = await _dao.dados;
+    return lista[indice];
+  }
 }

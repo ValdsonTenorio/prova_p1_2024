@@ -1,13 +1,12 @@
 class Pessoa {
   String _nome;
-  int _id;
+  int _id = 0;
   String _telefone;
   String _email;
   Pessoa({id, required nome, required telefone, required email})
       : _email = email,
         _nome = nome,
-        _telefone = telefone,
-        _id = id;
+        _telefone = telefone;
 
   String get nome => _nome;
   String get telefone => _telefone;
