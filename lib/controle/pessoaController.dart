@@ -1,5 +1,4 @@
 import 'package:novo_projeto/entidade/pessoa.dart';
-import 'package:novo_projeto/repositorio/Dao.dart';
 import 'package:novo_projeto/repositorio/DaoSqLite.dart';
 import 'package:novo_projeto/repositorio/interfaceDao';
 
