@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:novo_projeto/cadastro.dart';
 import 'package:novo_projeto/controle/pessoaController.dart';
 import 'package:novo_projeto/listagem.dart';
+import 'package:novo_projeto/login.dart';
 
 void main(List<String> args) {
   runApp(const App());
@@ -25,7 +26,8 @@ class _App extends State<App> {
       // home: const Listagem(),
       initialRoute: '/',
       routes: {
-        '/': (context) => Listagem(pessoaController: pessoaController),
+        '/login': (context) => Login(),
+        '/listagem': (context) => Listagem(pessoaController: pessoaController),
         '/cadastro': (context) => Cadastro(pessoaController: pessoaController),
       },
     );

@@ -30,6 +30,7 @@ class Cadastro extends StatelessWidget {
     MaskedTextController telefoneController =
         MaskedTextController(mask: '(00) 00000-0000');
     return Scaffold(
+      appBar: AppBar(title: const Text('Cadastro de Pessoas')),
       body: Column(
         children: [
           TextField(
