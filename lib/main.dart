@@ -26,7 +26,7 @@ class _App extends State<App> {
       // home: const Listagem(),
       initialRoute: '/',
       routes: {
-        '/login': (context) => Login(),
+        '/': (context) => Login(),
         '/listagem': (context) => Listagem(pessoaController: pessoaController),
         '/cadastro': (context) => Cadastro(pessoaController: pessoaController),
       },
