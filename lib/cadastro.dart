@@ -8,8 +8,7 @@ class Cadastro extends StatelessWidget {
 
   const Cadastro(
       {super.key,
-      required this.pessoaController}); // Recebe o controlador como argumento
-// Função para validar o email
+      required this.pessoaController}); 
   bool _isEmailValid(String email) {
     final RegExp emailRegex = RegExp(
       r'^[^@]+@[^@]+\.[^@]+',
@@ -51,7 +50,7 @@ class Cadastro extends StatelessWidget {
               onPressed: () {
                 // Validação do e-mail
                 if (!_isEmailValid(emailController.text)) {
-                  // Exibe um alerta se o email for inválido
+                
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
                         content: Text('Por favor, insira um e-mail válido.')),
