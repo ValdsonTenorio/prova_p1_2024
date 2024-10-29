@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:novo_projeto/controle/loginController.dart';
 import 'package:novo_projeto/controle/pessoaController.dart';
 
 class Listagem extends StatefulWidget {
@@ -16,20 +17,32 @@ class _Listagem extends State<Listagem> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Listagem de Pessoas')),
+      appBar: AppBar(
+        title: const Text('Listagem de Pessoas'),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Logincontroller l = Logincontroller();
+                l.logout();
+                Navigator.pushNamed(context, "/");
+                //  Navigator.pop(context);
+              },
+              icon: Icon(Icons.logout))
+        ],
+      ),
       body: FutureBuilder<List>(
         future: widget.pessoaController
-            .listar(), 
+            .listar(), // Chama o método assíncrono para obter o tamanho
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
                 child:
-                    CircularProgressIndicator()); 
+                    CircularProgressIndicator()); // Indicador de carregamento
           } else if (snapshot.hasError) {
             return Center(
-                child: Text('Erro: ${snapshot.error}')); 
+                child: Text('Erro: ${snapshot.error}')); // Mensagem de erro
           } else {
-            
+            // O número de itens
             final List itens = snapshot.data!;
             return ListView.builder(
               itemCount: itens.length,
@@ -51,7 +64,7 @@ class _Listagem extends State<Listagem> {
                               TextButton(
                                 onPressed: () {
                                   Navigator.of(context)
-                                      .pop(); 
+                                      .pop(); // Fecha o diálogo
                                 },
                                 child: const Text('Cancelar'),
                               ),
@@ -63,7 +76,7 @@ class _Listagem extends State<Listagem> {
                                   setState(
                                       () {}); // Atualiza a lista após excluir
                                   Navigator.of(context)
-                                      .pop(); 
+                                      .pop(); // Fecha o diálogo
                                 },
                                 child: const Text('Excluir'),
                               ),
