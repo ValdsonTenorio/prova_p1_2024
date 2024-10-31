@@ -1,13 +1,13 @@
-import 'dart:ffi';
-
-import 'package:novo_projeto/autenticacao/sharedSessao.dart';
+import 'package:novo_projeto/autenticacao/secureStorage.dart';
 import 'package:novo_projeto/repositorio/DaoSqLite.dart';
-import 'package:novo_projeto/repositorio/interfaceDao';
+import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
 
 import '../entidade/usuario.dart';
 
-class Logincontroller {
+class LoginController {
   final DaoSqLite _dao = DaoSqLite();
+  static const secretKey = '4dm1n';
+  final SecureStorage _secureStorage = SecureStorage();
 
   Future<int> salvar(String nome, String senha) {
     Usuario login = Usuario(nome: nome, senha: senha);
@@ -17,13 +17,21 @@ class Logincontroller {
   Future<bool> login(String nome, String senha) async {
     Future<bool> retorno = _dao.login(nome, senha);
     if (await retorno) {
-      SharedSessao.salvarToken(nome);
+      final jwt = JWT({
+        'name': nome,
+        'senha': senha,
+      });
+
+      String token = jwt.sign(SecretKey(secretKey));
+      print('Token: $token');
+
+      await _secureStorage.salvarToken(token);
       return true;
     }
     return false;
   }
 
-  void logout() async {
-    SharedSessao.logout();
+  Future<void> logout() async {
+    await _secureStorage.removerToken();
   }
 }

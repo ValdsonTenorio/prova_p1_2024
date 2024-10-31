@@ -22,7 +22,7 @@ class _Listagem extends State<Listagem> {
         actions: [
           IconButton(
               onPressed: () {
-                Logincontroller l = Logincontroller();
+                LoginController l = LoginController();
                 l.logout();
                 Navigator.pushNamed(context, "/");
                 //  Navigator.pop(context);

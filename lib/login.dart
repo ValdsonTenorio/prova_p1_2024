@@ -27,7 +27,7 @@ class Login extends StatelessWidget {
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             ElevatedButton.icon(
               onPressed: () async {
-                Logincontroller u = Logincontroller();
+                LoginController u = LoginController();
                 try {
                   bool success = await u.login(
                       usuarioController.text, senhaController.text);
@@ -45,7 +45,7 @@ class Login extends StatelessWidget {
             ),
             ElevatedButton.icon(
               onPressed: () async {
-                Logincontroller u = Logincontroller();
+                LoginController u = LoginController();
                 try {
                   await u.salvar(usuarioController.text, senhaController.text);
                   _showDialog(
